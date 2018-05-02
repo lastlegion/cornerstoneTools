@@ -199,7 +199,7 @@ function addPoint (eventData) {
   config.currentHandle += 1;
 
   // Reset freehand value
-  config.freehand = false;
+  //config.freehand = false;
 
   // Force onImageRendered to fire
   external.cornerstone.updateImage(eventData.element);
@@ -257,10 +257,6 @@ function mouseUpCallback (e) {
     dropTextbox(toolData, eventData);
 
     return;
-  }
-
-  if (!eventData.event.shiftKey) {
-    config.freehand = false;
   }
 
   if (config.modifying) {
@@ -392,9 +388,6 @@ function mouseDownCallback (e) {
       // Snap if click registered on origin node or on last node placed
       if ((handleNearby === 0 || handleNearby === lastNodeID) && !freeHandIntersectEnd(toolData.data[currentTool].handles)) {
         endDrawing(eventData, handleNearby);
-      } else if (eventData.event.shiftKey) {
-        config.freehand = true;
-        toolData.data[currentTool].textBox.freehand = true;
       }
 
       e.preventDefault();
