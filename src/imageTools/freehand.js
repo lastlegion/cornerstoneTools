@@ -199,7 +199,6 @@ function addPoint (eventData) {
   config.currentHandle += 1;
 
   // Reset freehand value
-  //config.freehand = false;
 
   // Force onImageRendered to fire
   external.cornerstone.updateImage(eventData.element);
