@@ -340,6 +340,11 @@ function isValidNode (newHandle, dataHandles) {
   return !freeHandIntersect(newHandle, dataHandles);
 }
 
+function deleteTool (eventData, i) {
+    const toolData = getToolState(eventData.element, toolType);
+    return toolData.data.splice(i, 1);
+}
+
 function mouseHover (eventData, toolData) {
   // Check if user is mousing over a point
   let imageNeedsUpdate = false;
@@ -858,7 +863,9 @@ const freehand = {
   activate,
   deactivate,
   getConfiguration,
-  setConfiguration
+  setConfiguration,
+  pointNearTool,
+  deleteTool
 };
 
 export { freehand };
